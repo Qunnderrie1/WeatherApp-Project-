@@ -1,0 +1,219 @@
+body{
+    font-family: 'open sans';
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-image: url("./images/backgroundimage.jpeg");
+
+    color:white;
+}
+
+::-webkit-scrollbar-track{
+   background-color: red;
+}
+.rightContainerHeader{
+    font-weight: bold;
+    font-family: 'open sans';
+}
+
+.s_location_time:hover{
+    cursor: pointer;
+    color: rgb(255, 255, 255, 0.5);
+}
+.timeStamp{
+    font-size: 12px;
+}
+.appContainer{
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+}
+h1{
+    font-size: 20px;
+    padding:40px;
+    font-weight: light;
+}
+.leftContainer{
+    color:white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    justify-content: space-between;
+    flex-grow: 2;
+}
+.weatherImageContainer{
+display: flex;
+flex-direction: column;
+margin-bottom: 22px;
+    
+}
+.weatherDescription{
+text-align: center;
+margin-top: -20px;
+}
+.weatherDisplayContainer{
+    display: flex;
+    padding: 40px;
+    align-items: center;
+}
+.innerDisplayContent{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.form-check{
+    margin: 20px;
+}
+.degreeContainer{
+    display: flex;
+    align-items:flex-start;
+    font-size: 20px;
+
+}
+.rightInnerDisplayContent{
+    display: flex;
+    flex-direction: column;
+}
+.weatherTextBottomContainer{
+    display: flex;
+    align-items: center;
+}
+.weatherTextBottom{
+    display: flex;
+    
+}
+.degreeText{
+    font-size: 80px;
+}
+.cityText{
+    font-weight: lighter;
+    font-size: 40px;
+}
+.rightContainer{
+    margin: 0px;
+    padding: 0;
+    background-color: rgb(0, 0, 0, 0.5);
+    flex-grow: 0.5;
+    align-self: flex-end;
+    height: 100vh;
+}
+.rightContent{
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+.searchContainer{
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px;
+    gap: 20px;
+
+}
+.weatherTextBottomContainer{
+    display: flex;
+}
+
+.saveBtn{
+    margin: 20px;
+}
+.savedItem{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+.savedItem p {
+    margin: 0px;
+}
+.savedContainer
+{
+    height: inherit;
+    padding: 20px;
+}
+.savedItemsContainer{
+    height: 200px;
+    overflow:scroll;
+    overflow-x: hidden;
+
+
+}
+.savedItemsContainer p {
+
+}
+.detailsContainer{
+    margin: 0px;
+    padding: 20px;
+}
+.weatherItem{
+    display: flex;
+    justify-content: space-between;
+}
+
+.w-item{
+    display: flex;
+
+}
+#symbol{
+    align-self: flex-start;
+    font-size: 10px;
+}
+
+.rightWeatherDisplayContainer{
+    display: flex;
+    padding: 40px;
+    align-items: center;
+    flex-direction: column;
+}
+.rightInnerDisplayContent{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.rightDegreeContainer{
+    display: flex;
+    align-items:flex-start;
+    font-size: 20px;
+}
+.rightDegreeText{
+    font-size: 30px;
+}
+.rightCityText{
+    font-size: 20px;
+}
+.weather{
+    visibility: hidden;
+}
+
+@media screen and (max-width: 900px) {
+    .weather{
+       visibility: visible;
+    }
+    
+    .appContainer{
+        height: 1080px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 0px;
+    }
+    .rightContainer{
+        width: 100%;
+        margin: 0px;
+        padding: 0;
+        background-color: rgb(0, 0, 0, 0.5);
+        height: 1080px;
+        flex-grow: 0.5;
+        align-self: center;
+    }
+    .leftContainer{
+        display: none;
+
+    }
+
+    .detailsContainer{
+        height: inherit;
+        padding: 20px;
+    }
+
+}
