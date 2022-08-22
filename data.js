@@ -27,7 +27,7 @@ console.log(date.getHours())
 
 loaderContainer.style.visibility = "hidden";
 
-if(date.getHours() > 20){
+if(date.getHours() > 20 || date.getHours() < 6){
   body.style.backgroundImage = `url('images/night-background.jpeg')`
 }else{
    body.style.backgroundImage = `url('images/backgroundImage.jpeg')`
