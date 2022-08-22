@@ -15,13 +15,17 @@ const weatherImage = document.getElementById('weatherImage');
 const weatherImageMobile = document.getElementById('weatherImageMobile');
 const rightWeatherContainer = document.getElementById('rightWeatherContainer')
 const appContainer = document.getElementById('appContainer');
-const weatherDescription = document.getElementById('weatherDescription')
+const weatherDescription = document.getElementById('weatherDescription');
+const rightWeatherDescription = document.getElementById('rightWeatherDescription');
+const loader = document.getElementById('loader');
+const loaderContainer = document.getElementById('loaderContainer')
 const body = document.body;
 
 let date = new Date();
 
 console.log(date.getHours())
 
+loaderContainer.style.visibility = "hidden";
 
 if(date.getHours() > 20){
   body.style.backgroundImage = `url('images/night-background.jpeg')`
@@ -30,10 +34,10 @@ if(date.getHours() > 20){
 }
 console.log(date.getHours())
 
-
 // body.style.backgroundImage = "url(./images/rain.jpeg)";
 
 function getCurrentWeather(){
+  
     // Weather API Key
     const apiKey = "80c1cdf387885114b37924a1b27b799a";
   
@@ -46,11 +50,8 @@ function getCurrentWeather(){
     fetch(url1)
     .then((res) => res.json())
     .then((data) =>{
-
-      console.log(data)
-
       flexSwitchCheckDefault.addEventListener('click', () =>{
-      
+        loaderContainer.style.visibility == "visible"
         if(!flexSwitchCheckDefault.checked){
           flexSwitchText.textContent = "Celsius"
           degreeText.textContent = `${Math.floor((Math.round(data.main.temp) - 32) * 5 / 9)}`;
@@ -85,16 +86,13 @@ function getCurrentWeather(){
           rightDegreeText.textContent = Math.round(data.main.temp)
           rightCityText.textContent = data.name
           weatherImageMobile.setAttribute('src', weatherUrlImage)
-      
+          rightWeatherDescription.textContent = data.weather[0].description
         }
-  
-
         
       } catch (error) {
         alert(`Please enter in the correct value.`)
         userSearch.value = "";
       }
-
       if(data.weather[0].description == "rain"){
         body.style.backgroundImage = `url('images/rain2.jpeg')`
       }else if (data.weather[0].description == "clear sky"){
@@ -104,9 +102,11 @@ function getCurrentWeather(){
       }
       
     }).catch(() => console.log("Something went wrong, try again!")) 
+    if(loaderContainer.style.visibility == "visible"){
+      loaderContainer.style.visibility == "hidden"
+    }
   
-    
   }
-
+  console.log(  loaderContainer)
 
   export default getCurrentWeather;

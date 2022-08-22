@@ -14,6 +14,10 @@ body{
     font-weight: bold;
     font-family: 'open sans';
 }
+.weatherDetailsContainer{
+    display: flex;
+    flex-direction: column;
+}
 
 .s_location_time:hover{
     cursor: pointer;
@@ -26,6 +30,7 @@ body{
     display: flex;
     flex-direction: row;
     padding: 0px;
+    height: auto;
 }
 h1{
     font-size: 20px;
@@ -39,7 +44,7 @@ h1{
     flex-direction: column;
     align-self: flex-start;
     justify-content: space-between;
-    flex-grow: 2;
+
 }
 .weatherImageContainer{
 display: flex;
@@ -95,7 +100,7 @@ margin-top: -20px;
     background-color: rgb(0, 0, 0, 0.5);
     flex-grow: 0.5;
     align-self: flex-end;
-    height: 100vh;
+    height: auto;
 }
 .rightContent{
     height: fit-content;
@@ -184,14 +189,50 @@ margin-top: -20px;
 .weather{
     visibility: hidden;
 }
+.loaderContainer{
+    z-index: 5;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 0, 0, 0.5);
+    height: 100vh;
+    width: 100%;
+
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid rgb(255, 187, 0);
+    border-bottom: 16px solid rgb(255, 187, 0);
+    width: 100px;
+    height: 100px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
 
 @media screen and (max-width: 900px) {
+
+    .weatherDetailsContainer{
+        display: flex;
+        flex-direction: column-reverse;
+    }
     .weather{
        visibility: visible;
     }
     
     .appContainer{
-        height: 1080px;
+        height: auto;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -202,7 +243,7 @@ margin-top: -20px;
         margin: 0px;
         padding: 0;
         background-color: rgb(0, 0, 0, 0.5);
-        height: 1080px;
+        height: auto;
         flex-grow: 0.5;
         align-self: center;
     }
@@ -217,3 +258,4 @@ margin-top: -20px;
     }
 
 }
+
