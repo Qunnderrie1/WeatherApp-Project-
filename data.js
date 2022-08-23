@@ -1,40 +1,28 @@
-const windSpeedText = document.getElementById("windSpeedText");
+
 const feelsLikeText = document.getElementById("feelsLikeText");
 const tempHighText = document.getElementById("tempHighText");
 const tempLowText = document.getElementById("tempLowText");
-const humidityText = document.getElementById("humidityText");
-const cityText = document.getElementById("cityText");
-const degreeText = document.getElementById("degreeText");
 const userSearch = document.getElementById("userSearch");
-const  flexSwitchCheckDefault = document.getElementById('flexSwitchCheckDefault')
+const flexSwitchCheckDefault = document.getElementById('flexSwitchCheckDefault')
 const rightCityText =  document.getElementById('rightCityText');
-const rightDegreeText =  document.getElementById('rightCityText');
+const rightDegreeText =  document.getElementById('rightDegreeText');
 const flexSwitchText = document.getElementById('flexSwitchText');
-const weatherUrlImage = document.getElementById('weatherUrlImage');
-const weatherImage = document.getElementById('weatherImage');
 const weatherImageMobile = document.getElementById('weatherImageMobile');
-const rightWeatherContainer = document.getElementById('rightWeatherContainer')
-const appContainer = document.getElementById('appContainer');
-const weatherDescription = document.getElementById('weatherDescription');
 const rightWeatherDescription = document.getElementById('rightWeatherDescription');
-const loader = document.getElementById('loader');
 const loaderContainer = document.getElementById('loaderContainer')
 const body = document.body;
 
 let date = new Date();
 
-console.log(date.getHours())
-
-loaderContainer.style.visibility = "hidden";
-
 if(date.getHours() > 20 || date.getHours() < 6){
-  body.style.backgroundImage = `url('images/night-background.jpeg')`
+  body.style.backgroundImage = `url('images/night-background.jpeg')`;
 }else{
-   body.style.backgroundImage = `url('images/backgroundImage.jpeg')`
+   body.style.backgroundImage = `url('images/rain3.jpeg')`;
 }
-console.log(date.getHours())
 
-// body.style.backgroundImage = "url(./images/rain.jpeg)";
+window.addEventListener('load', () =>{
+  loaderContainer.style.visibility = "hidden"
+})
 
 function getCurrentWeather(){
   
@@ -51,14 +39,11 @@ function getCurrentWeather(){
     .then((res) => res.json())
     .then((data) =>{
       flexSwitchCheckDefault.addEventListener('click', () =>{
-        loaderContainer.style.visibility == "visible"
         if(!flexSwitchCheckDefault.checked){
           flexSwitchText.textContent = "Celsius"
-          degreeText.textContent = `${Math.floor((Math.round(data.main.temp) - 32) * 5 / 9)}`;
           rightDegreeText.textContent = `${Math.floor((Math.round(data.main.temp) - 32) * 5 / 9)}`;
         }else{
           flexSwitchText.textContent = "Fahrenhiet"
-          degreeText.textContent = `${Math.round(data.main.temp)}`;
           rightDegreeText.textContent = `${Math.round(data.main.temp)}`;
         }
       })
@@ -66,47 +51,51 @@ function getCurrentWeather(){
 
       try {
 
-        if(!userSearch.value){
-          alert("Please enter in a value.")
-        }else{
-    
+        if(userSearch.value){
           const weatherUrlImage = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
-          // Web Version 
-          cityText.textContent = data.name
-          degreeText.textContent = Math.round(data.main.temp)
-          windSpeedText.textContent = `${data.wind.speed} m/h `;
+
           tempHighText.textContent =  Math.round(data.main.temp_max);
           tempLowText.textContent =  Math.round(data.main.temp_min);
           feelsLikeText.textContent =  Math.round(data.main.feels_like);
-          humidityText.textContent =  Math.round(data.main.humidity);
-          weatherImage.setAttribute('src', weatherUrlImage)
-          weatherDescription.textContent = data.weather[0].description
   
           // Mobile Version
           rightDegreeText.textContent = Math.round(data.main.temp)
           rightCityText.textContent = data.name
           weatherImageMobile.setAttribute('src', weatherUrlImage)
           rightWeatherDescription.textContent = data.weather[0].description
+        }else{
+          alert(`Please enter in the correct value.`);
         }
-        
+      
       } catch (error) {
-        alert(`Please enter in the correct value.`)
+        
         userSearch.value = "";
       }
-      if(data.weather[0].description == "rain"){
-        body.style.backgroundImage = `url('images/rain2.jpeg')`
+
+      if(data.weather[0].description == "rain"
+       || data.weather[0].description == "mist"
+       || data.weather[0].description == "heavy rain"
+      || data.weather[0].description == "light rain"
+      || data.weather[0].description == "shower rain"){
+
+        body.style.backgroundImage = `url('images/rain3.jpeg')`
+
       }else if (data.weather[0].description == "clear sky"){
         body.style.backgroundImage = `url('images/backgroundImage.jpeg')`
-      }else if(data.weather[0].description == "cloudy"){
+
+      }else if(data.weather[0].description == "cloudy"
+       || data.weather[0].description == "few clouds"
+       || data.weather[0].description == "scattered clouds"
+       || data.weather[0].description == "broken clouds"){
+
         body.style.backgroundImage = `url('images/cloudy.jpeg')`
       }
       
     }).catch(() => console.log("Something went wrong, try again!")) 
-    if(loaderContainer.style.visibility == "visible"){
-      loaderContainer.style.visibility == "hidden"
-    }
-  
+
   }
-  console.log(  loaderContainer)
+
+   
+
 
   export default getCurrentWeather;

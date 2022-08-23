@@ -6,12 +6,10 @@ import SelectedAreas from "./selectedAreas.js";
 const searchBtn = document.getElementById("searchBtn");
 const userSearch = document.getElementById("userSearch");
 const saveBtn = document.getElementById('saveBtn')
-const weatherDate = document.getElementById('weatherDate');
 const savedItemsContainer =  document.getElementById("savedItemsContainer");
 const rightWeatherDate = document.getElementById('rightWeatherDate')
 
 
- weatherDate.textContent = new Date().toDateString();
  rightWeatherDate.textContent = new Date().toDateString();
 
 searchBtn.addEventListener('click', getCurrentWeather);
@@ -27,7 +25,6 @@ function saveLocation(){
     alert("Please enter in a value")
   }else{
     let date = new Date();
-    let currentTime = date.toLocaleTime
     const div1 = document.createElement('div');
 
     div1.className = "savedItem";
@@ -50,7 +47,7 @@ function saveLocation(){
     button.className = "btn btn-danger";
     button.appendChild(i);
   
-    savedItemsContainer.appendChild(div1);
+    savedItemsContainer.append(div1);
     div1.append(div2 , button);
     div2.append(p,time);
 
@@ -64,7 +61,6 @@ function saveLocation(){
       userSavedLocations.removeLocation(p.dataset.id)
       div1.remove();
       
-      console.log(userSavedLocations)
 
     })
 

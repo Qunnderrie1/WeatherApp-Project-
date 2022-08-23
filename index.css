@@ -2,7 +2,7 @@ body{
     font-family: 'open sans';
     background-size:cover;
     background-repeat: no-repeat;
-    background-image: url("./images/backgroundimage.jpeg");
+    background-image: url("./images/rain3.jpeg");
 
     color:white;
 }
@@ -10,6 +10,7 @@ body{
 ::-webkit-scrollbar-track{
    background-color: red;
 }
+
 .rightContainerHeader{
     font-weight: bold;
     font-family: 'open sans';
@@ -29,33 +30,18 @@ body{
 .appContainer{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     padding: 0px;
     height: auto;
+    width: 100%;
 }
 h1{
     font-size: 20px;
     padding:40px;
     font-weight: light;
 }
-.leftContainer{
-    color:white;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-self: flex-start;
-    justify-content: space-between;
 
-}
-.weatherImageContainer{
-display: flex;
-flex-direction: column;
-margin-bottom: 22px;
-    
-}
-.weatherDescription{
-text-align: center;
-margin-top: -20px;
-}
+
 .weatherDisplayContainer{
     display: flex;
     padding: 40px;
@@ -69,12 +55,7 @@ margin-top: -20px;
 .form-check{
     margin: 20px;
 }
-.degreeContainer{
-    display: flex;
-    align-items:flex-start;
-    font-size: 20px;
 
-}
 .rightInnerDisplayContent{
     display: flex;
     flex-direction: column;
@@ -87,20 +68,16 @@ margin-top: -20px;
     display: flex;
     
 }
-.degreeText{
-    font-size: 80px;
-}
-.cityText{
-    font-weight: lighter;
-    font-size: 40px;
-}
+
 .rightContainer{
-    margin: 0px;
+    margin: auto;
     padding: 0;
     background-color: rgb(0, 0, 0, 0.5);
-    flex-grow: 0.5;
-    align-self: flex-end;
-    height: auto;
+    flex-grow: 0.1;
+    align-self: center;
+    justify-content: center;
+    max-width: 600px;
+
 }
 .rightContent{
     height: fit-content;
@@ -110,6 +87,7 @@ margin-top: -20px;
     width: 100%;
 }
 .searchContainer{
+    margin-top: 20px;
     display: flex;
     justify-content: flex-start;
     padding: 20px;
@@ -137,15 +115,13 @@ margin-top: -20px;
     padding: 20px;
 }
 .savedItemsContainer{
-    height: 200px;
+    height: 150px;
     overflow:scroll;
     overflow-x: hidden;
 
 
 }
-.savedItemsContainer p {
 
-}
 .detailsContainer{
     margin: 0px;
     padding: 20px;
@@ -187,39 +163,32 @@ margin-top: -20px;
     font-size: 20px;
 }
 .weather{
-    visibility: hidden;
+    visibility: visible;
 }
 .loaderContainer{
-    z-index: 5;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(0, 0, 0, 0.5);
+    visibility: hidden;
     height: 100vh;
+    position: absolute;
+    z-index: 13;
+    background-color: rgb(0, 0, 0, 0.3);
+    display: flex;
     width: 100%;
-
+    align-items: center;
+    justify-content: center ;
 }
-
 .loader {
-    border: 16px solid #f3f3f3;
+    border: 16px solid #fbd607; /* Light grey */
+    border-top: 16px solid #ffffff; /* Blue */
     border-radius: 50%;
-    border-top: 16px solid rgb(255, 187, 0);
-    border-bottom: 16px solid rgb(255, 187, 0);
     width: 100px;
     height: 100px;
-    -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
   }
-  @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-  }
+  
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-
 
 @media screen and (max-width: 900px) {
 
