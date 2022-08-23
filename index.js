@@ -1,4 +1,4 @@
-import userLocations from "./selectedAreas.js";
+
 import getCurrentWeather from "./data.js";
 import SelectedAreas from "./selectedAreas.js";
 
