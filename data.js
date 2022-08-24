@@ -86,8 +86,9 @@ function getCurrentWeather() {
         data.weather[0].description == "shower rain"
       ) {
         body.style.backgroundImage = `url('images/rain3.jpeg')`;
+        
       } else if (data.weather[0].description == "clear sky") {
-        body.style.backgroundImage = `url('images/backgroundImage.jpeg')`;
+        body.style.backgroundImage = `url('images/clearsky1.jpeg')`;
       } else if (
         data.weather[0].description == "cloudy" ||
         data.weather[0].description == "few clouds" ||
